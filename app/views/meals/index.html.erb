@@ -1,0 +1,30 @@
+<h1>Meals#index</h1>
+<p>Find me in app/views/meals/index.html.erb</p>
+
+<h1>Hello, Rails!</h1>
+<%= link_to 'dinnerdash', controller: 'meals' %>
+
+
+<h1>Listing articles</h1>
+ 
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Text</th>
+    <th></th>
+  </tr>
+ 
+  <% @meals.each do |meal| %>
+    <tr>
+      <td><%= meal.name %></td>
+      <td><%= meal.category %></td>
+      <td><%= meal.price %></td>
+      <td><%= link_to 'Show', meal_path(meal) %></td>
+      <td><%= link_to 'Edit', edit_meal_path(meal) %></td>
+       <td><%= link_to 'Destroy', meal_path(meal),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+  <%= link_to 'New Meal', new_meal_path %>
+</table>
