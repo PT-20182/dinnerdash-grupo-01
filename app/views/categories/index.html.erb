@@ -1,0 +1,30 @@
+<%= render 'categories/header'%>
+        <div class="container-fluid">
+          <table class="table table-hover tabela">
+            <thead class="table-active">
+              <tr class="cabecalho">
+                <th scope="col">Nome</th>
+                <th scope="col">Número de Refeições</th>
+                <th scope="col" colspan="3">Cadastrada em</th>
+              </tr>
+            </thead>
+            <% @categories.all.each do |category| %>
+            <tbody class = "text-muted">
+                <tr class="corpo">
+                  <td><%= category.name %></td>
+                  <td> <%= category.quantity %> </td>
+                  <td> <%= category.created_at.strftime("%d/%b/%y")%> </td>
+                  <td><%= link_to 'Editar', edit_category_path(category), method: 'get', class: "text-warning"%></td>
+                  <td><%= link_to 'Remover', category_path(category), method: 'delete', data: { confirm: 'Tem certeza?' }, class: "text-danger"%></td>
+                </tr>
+            </tbody>
+            <% end %>
+          </table>
+         <%= link_to "Criar nova categoria", new_category_path, class:"btn btn-success"%>
+        </div>
+<footer class="footer fixed-bottom">
+    <div class="minhaDiv text-center">
+        <span>dinnerdash | todos os direitos reservados</span>
+        <span>desenvolvido por Conrado N.</span>
+    </div>
+</footer>
