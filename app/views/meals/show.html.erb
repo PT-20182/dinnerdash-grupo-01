@@ -1,0 +1,32 @@
+<h1>Meals#show</h1>
+<p>Find me in app/views/meals/show.html.erb</p>
+
+
+<p>
+  <strong>Name:</strong>
+  <%= @meal.name %>
+</p>
+ 
+<p>
+  <strong>Category:</strong>
+  <%= @meal.category %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @meal.description %>
+</p>
+ 
+<p>
+  <strong>Price:</strong>
+  <%= @meal.price %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= image_tag  @meal.image %>
+</p>
+
+<%= link_to 'Back', meals_path %>
+<%= link_to 'Edit', edit_meal_path(@meal) %>
+
