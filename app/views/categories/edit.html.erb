@@ -1,0 +1,8 @@
+
+<h3>Mudar Categoria</h3>
+<%= form_with model: @category do |form| %>
+  <%= form.text_field :name, placeholder: "Nome" %>
+  <%= form.number_field :quantity, placeholder: "Quantidade" %>
+
+  <%= form.submit %>
+<% end %>

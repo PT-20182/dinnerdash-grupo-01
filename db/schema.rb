@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 2018_11_24_174615) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -41,6 +42,10 @@ ActiveRecord::Schema.define(version: 2018_11_24_174615) do
     t.string "category"
     t.text "description"
     t.decimal "price", precision: 10, scale: 2
+    
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.string "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -53,6 +58,8 @@ ActiveRecord::Schema.define(version: 2018_11_24_174615) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
+    t.boolean "admin"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
