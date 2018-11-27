@@ -15,3 +15,4 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 
 # Loading only this css on a unique page.
 Rails.application.config.assets.precompile += %w( login.css )
+Rails.application.config.assets.precompile += %w( registration.css )

@@ -5,13 +5,17 @@
   <div class="column_login">
   <h1>dinnerdash</h1>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div class="field">
-        <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "reg_box" %>
-      </div>
+    <%= devise_error_messages! %> <!-- Se o user estiver em branco, jogar msg, ainda tem que fazer! -->
 
       <div class="field">
-        <%= f.label :senha %><br />
+        <%= f.label :email %>
+        <br>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "reg_box" %>
+      </div>
+      <br>
+      <div class="field">
+        <%= f.label :senha %>
+        <br>
         <%= f.password_field :senha, autocomplete: "current-password", class: "reg_box" %>
       </div><br />
 
@@ -27,12 +31,15 @@
       <div class="actions">
         <%= f.submit "fazer login", class: "btn_login" %>
       </div>
-      <hr>
+      <br>
+      <div class="line"></div>
+      <br>
       <p>Não possui conta?</p>
       <div class="actions">
         <%= link_to "fazer meu cadastro", new_user_registration_path, class: "btn_cadastro" %>
-      </div>  <!-- Ele ainda não ta redirecionando pra tela de cadastro -->
+      </div>
     <% end %>
   </div>
 </div>
 <%= render "devise/shared/links" %>
+

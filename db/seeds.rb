@@ -7,3 +7,5 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 Category.create(name: "Massa", quantity: 0)
 Category.create(name: "Frios", quantity: 0)
+User.create(name: "admin" , email:"admin@example.com" , password:"noonecanguessthispass",
+             password_confirmation: "noonecanguessthispass", admin: true)
