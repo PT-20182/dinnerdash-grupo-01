@@ -1,12 +1,14 @@
+<%= stylesheet_link_tag "registration" %>
+
 <div class="container">
   <div class="dinner_img"></div>
   <div class="column_cadastro">
     <h1>dinnerdash</h1>
 
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-        <%= devise_error_messages! %>
 
         <div class="field">
+        <%= devise_error_messages! %>
           <%= f.label :email %><br />
           <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "reg_box" %>
           <br>

@@ -1,9 +1,11 @@
+<%= stylesheet_link_tag "login" %>
+
 <div class="container">
   <div class="dinner_img"></div>
   <div class="column_login">
   <h1>dinnerdash</h1>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <%= devise_error_messages! %> <!-- Se o user estiver em branco, jogar msg, ainda tem que fazer! -->
+    <%= devise_error_messages! %> 
 
       <div class="field">
         <%= f.label :email %>
