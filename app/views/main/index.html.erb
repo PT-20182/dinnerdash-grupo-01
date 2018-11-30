@@ -1,5 +1,147 @@
-<h1>Main#index</h1>
-<p>Find me in app/views/main/index.html.erb</p>
+<%= stylesheet_link_tag "main" %>
+
+<div class="restaurant_img">
+  <nav>
+    <div class="navbar">
+      <div class="margin_div_dinnerdash">
+        <h3>dinnerdash</h3>
+      </div>
+      <div class="margin_div_dinnerdash2">
+        <h5 class="space_between"><%= link_to "entrar", new_user_session_path, class: "link_color"%></h5>
+        <h5><%= link_to "cadastro", new_user_registration_path, class:"link_color" %></h5>
+
+      </div>
+    </div>
+  </nav>
+  <div class="margin_div">
+    <h1 id="header_font">Monte o seu prato</h1>
+    <h4>Escolha sua salada, molho, prato principal, guarnição e bebida</h2>
+  </div>
+</div>
+
+  <div class="title_spacing"><h3>Saladas</h3></div>
+<div class="container">
+    <div class="box"> 
+      <div class="business_img">
+        <div id="img_desc">Salada de macarrão</div>
+      </div>
+      <p id="food_desc">Possui macarrão, frango, milho, alcarrapas e algumas frutas</p>
+      <p id="price_desc">R$ 12,00 por porção</p>
+      <p>Quantidade:</p>
+      <p>Dropdown aqui</p>
+      <button type="button" class="btn btn-success add_food_btn">adicionar ao meu carrinho</button>
+    </div>
+    
+    <div class="box"> 
+      
+    </div>
+    
+    <div class="box"> 
+    </div>
+
+    <div class="box"> 
+      
+    </div>
+</div>
+
+  <div class="title_spacing"><h3>Molhos</h3></div>
+<div class="container">
+    <div class="box"> 
+      <div class="business_img">
+        <div id="img_desc">Salada de macarrão</div>
+      </div>
+    </div>
+    
+    <div class="box"> 
+      
+    </div>
+    
+    <div class="box"> 
+    </div>
+
+    <div class="box"> 
+      
+    </div>
+</div>
+
+  <div class="title_spacing"><h3>Pratos principais</h3></div>
+<div class="container">
+    <div class="box"> 
+      <div class="business_img">
+        <div id="img_desc">Salada de macarrão</div>
+      </div>
+    </div>
+    
+    <div class="box"> 
+      
+    </div>
+    
+    <div class="box"> 
+    </div>
+
+    <div class="box"> 
+      
+    </div>
+</div>
+
+  <div class="title_spacing"><h3>Guanirções</h3></div>
+<div class="container">
+    <div class="box"> 
+      <div class="business_img">
+        <div id="img_desc">Salada de macarrão</div>
+      </div>
+    </div>
+    
+    <div class="box"> 
+      
+    </div>
+    
+    <div class="box"> 
+    </div>
+
+    <div class="box"> 
+      
+    </div>
+</div>
+
+  <div class="title_spacing"><h3>Bebidas:</h3></div>
+<div class="container">
+    <div class="box"> 
+      <div class="business_img">
+        <div id="img_desc">Salada de macarrão</div>
+      </div>
+    </div>
+    
+    <div class="box"> 
+      
+    </div>
+    
+    <div class="box"> 
+    </div>
+
+    <div class="box"> 
+      
+    </div>
+
+
+</div>
+
+<hr>
+
+
+
+<!-- Small button groups (default and split) -->
+<div class="btn-group">
+  <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Small button
+  </button>
+  <div class="dropdown-menu">
+    <option class="dropdown-item">1</option>
+    <option class="dropdown-item">2</option>
+  </div>
+</div>
+
+
 <%= link_to "Sair", destroy_user_session_path, method: :delete %>
 <%= link_to "Login", user_session_path %>
 <%= link_to "Signup", new_user_registration_path %>
