@@ -36,15 +36,9 @@ ActiveRecord::Schema.define(version: 2018_11_24_174615) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "meals", force: :cascade do |t|
-    t.string "name"
-    t.string "category"
-    t.text "description"
-    t.decimal "price", precision: 10, scale: 2
-    
   create_table "categories", force: :cascade do |t|
     t.string "name"
-    t.integer "quantity"
+    t.string "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
