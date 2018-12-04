@@ -1,5 +1,17 @@
 @import 'bootstrap';
 
+// overriding css stuff //
+.btn {
+  margin-left: 20px;
+  margin-bottom: 100px;
+}
+
+.form-control {
+  cursor: pointer;
+  margin-left: 20px;
+}
+// ---------------------------- //
+
 * {
   box-sizing: border-box;
 }
@@ -54,21 +66,17 @@ a:hover {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  margin-top: 1em;
-  // background-color: green;
 }
 
 
 .box {
-  // display: flex;
   width: 18.5vw;
-  height: 60vh;
-  background-color: yellow;
+  height: 68vh;
+  background-color: white;
   overflow: hidden;
   border-style: solid; 
-  border-width: 1px;
-  border-color: black; //lightgrey
-  overflow: hidden;
+  border-width: 0.1px;
+  border-color: #DEDEDE; 
 }
 
 .business_img {
@@ -83,10 +91,6 @@ a:hover {
   position: relative; 
 }
 
-.btn {
-  width: 30vw;
-}
-
 .footer {
   margin-top: 1em;
   background: #F2F2F2;
@@ -98,13 +102,6 @@ a:hover {
   padding-top: 10px;
   padding-bottom: 10px;
 }
-// overriding css button stuff
-.btn {
-  color: black;
-  margin-left: 20px;
-  width: none;
-}
-// ----------------------------
 
 /* IDS */
 
@@ -113,24 +110,31 @@ a:hover {
 }
 
 #img_desc {
-  background-color: black;
+  background-color: #2E1E1A;
+  padding-top: 5px;
   text-align: center;
   color: white;
+  font-weight: bold;
   width: 252.7px;
-  height: 5vh;
+  height: 6vh;
   position: absolute;
   bottom: 0;
-  opacity: 0.6;
+  opacity: 0.8;
+  z-index: 1;
+}
+
+#qtd_style {
+  color: #ACACAC;
+  margin-left: 10px;
 }
 
 #food_desc {
-  text-align: center;
-  // padding: 5px;
   color: #ACACAC;
+  margin-left: 10px;  
 }
 
 #price_desc {
-  text-align: center;
   color: #3AC86F;
+  margin-left: 10px;  
 }
 

@@ -27,9 +27,12 @@
       </div>
       <p id="food_desc">Possui macarrão, frango, milho, alcarrapas e algumas frutas</p>
       <p id="price_desc">R$ 12,00 por porção</p>
-      <p>Quantidade:</p>
-      <p>Dropdown aqui</p>
-      <button type="button" class="btn btn-success add_food_btn">adicionar ao meu carrinho</button>
+      <p id="qtd_style">Quantidade:</p>
+      <p><select class="form-control col-10" name="amount" id="meals_amount"> <!-- Dar uma olhada nesse dropdown dps pra estilizar mais -->
+          <option value="">Selecionar</option>
+          <option value="meals_number"><%=options_for_select(0..6)%></option>
+          </select></p>
+      <button type="button" class="btn btn-success ">adicionar ao meu carrinho</button>
     </div>
     
     <div class="box"> 
