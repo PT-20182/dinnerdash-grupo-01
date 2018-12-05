@@ -1,5 +1,6 @@
 class CategoriesController < ApplicationController
   before_action :current_category, only: [:show, :edit, :update, :destroy]
+  
   def index
     @categories = Category.all.order(id: :desc)
   end
