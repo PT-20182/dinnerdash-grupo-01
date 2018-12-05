@@ -1,2 +1,144 @@
-<h1>Main#index</h1>
-<p>Find me in app/views/main/index.html.erb</p>
+<%= stylesheet_link_tag "main" %>
+
+<div class="restaurant_img">
+  <nav>
+    <div class="navbar">
+      <div class="margin_div_dinnerdash">
+        <h3>dinnerdash</h3>
+      </div>
+      <div class="margin_div_dinnerdash2">
+        <h5 class="space_between"><%= link_to "entrar", new_user_session_path, class: "link_color"%></h5>
+        <h5><%= link_to "cadastro", new_user_registration_path, class:"link_color" %></h5>
+
+      </div>
+    </div>
+  </nav>
+  <div class="margin_div">
+    <h1 id="header_font">Monte o seu prato</h1>
+    <h4>Escolha sua salada, molho, prato principal, guarnição e bebida</h2>
+  </div>
+</div>
+
+  <div class="title_spacing"><h3>Saladas</h3></div>
+<div class="container">
+    <% @meals.each do |meal| %>
+      <%if meal.category == "Saladas"%> <!-- Onde jogo isso aqui pra nao poluir o erb -->
+        <div class="box"> 
+          <div class="business_img" style="background-image: url('<%= url_for(meal.image)%>');">
+            <div id="img_desc"><%= meal.name %></div>
+          </div>
+          <div id="food_desc"><%= meal.description %></div>
+          <div id="price_desc">R$ <%= meal.price %>  por porção</div>
+          <div id="qtd_style">Quantidade:</div>
+          <div> <!-- Olhar como colocar o select e o botão alinhados ao resto das divs -->
+              <select class="form-control col-10" name="amount" id="meals_amount"> <!-- Dar uma olhada nesse dropdown dps pra estilizar mais -->
+                <option value="">Selecionar</option>
+                <option value="meals_number"><%=options_for_select(0..6)%></option>
+              </select>
+          </div>
+          <button id="cart_btn" type="button" class="btn btn-success ">adicionar ao meu carrinho</button>
+        </div>
+      <% end %>
+    <% end %>
+</div>
+
+  <div class="title_spacing"><h3>Molhos</h3></div>
+<div class="container">
+    <% @meals.each do |meal| %>
+      <%if meal.category == "Molhos"%> <!-- Onde jogo isso aqui pra nao poluir o erb -->
+        <div class="box"> 
+          <div class="business_img" style="background-image: url('<%= url_for(meal.image)%>');">
+            <div id="img_desc"><%= meal.name %></div>
+          </div>
+          <div id="food_desc"><%= meal.description %></div>
+          <div id="price_desc">R$ <%= meal.price %>  por porção</div>
+          <div id="qtd_style">Quantidade:</div>
+          <div> <!-- Olhar como colocar o select e o botão alinhados ao resto das divs -->
+              <select class="form-control col-10" name="amount" id="meals_amount"> <!-- Dar uma olhada nesse dropdown dps pra estilizar mais -->
+                <option value="">Selecionar</option>
+                <option value="meals_number"><%=options_for_select(0..6)%></option>
+              </select>
+          </div>
+          <button id="cart_btn" type="button" class="btn btn-success ">adicionar ao meu carrinho</button>
+        </div>
+      <% end %>
+    <% end %>
+</div>
+
+  <div class="title_spacing"><h3>Pratos principais</h3></div>
+<div class="container">
+    <% @meals.each do |meal| %>
+      <%if meal.category == "Pratos Principais"%> <!-- Onde jogo isso aqui pra nao poluir o erb -->
+        <div class="box"> 
+          <div class="business_img" style="background-image: url('<%= url_for(meal.image)%>');">
+            <div id="img_desc"><%= meal.name %></div>
+          </div>
+          <div id="food_desc"><%= meal.description %></div>
+          <div id="price_desc">R$ <%= meal.price %>  por porção</div>
+          <div id="qtd_style">Quantidade:</div>
+          <div> <!-- Olhar como colocar o select e o botão alinhados ao resto das divs -->
+              <select class="form-control col-10" name="amount" id="meals_amount"> <!-- Dar uma olhada nesse dropdown dps pra estilizar mais -->
+                <option value="">Selecionar</option>
+                <option value="meals_number"><%=options_for_select(0..6)%></option>
+              </select>
+          </div>
+          <button id="cart_btn" type="button" class="btn btn-success ">adicionar ao meu carrinho</button>
+        </div>
+      <% end %>
+    <% end %>
+</div>
+
+  <div class="title_spacing"><h3>Guanirções</h3></div>
+<div class="container">
+    <% @meals.each do |meal| %>
+      <%if meal.category == "Guarnições"%> <!-- Onde jogo isso aqui pra nao poluir o erb -->
+        <div class="box"> 
+          <div class="business_img" style="background-image: url('<%= url_for(meal.image)%>');">
+            <div id="img_desc"><%= meal.name %></div>
+          </div>
+          <div id="food_desc"><%= meal.description %></div>
+          <div id="price_desc">R$ <%= meal.price %>  por porção</div>
+          <div id="qtd_style">Quantidade:</div>
+          <div> <!-- Olhar como colocar o select e o botão alinhados ao resto das divs -->
+              <select class="form-control col-10" name="amount" id="meals_amount"> <!-- Dar uma olhada nesse dropdown dps pra estilizar mais -->
+                <option value="">Selecionar</option>
+                <option value="meals_number"><%=options_for_select(0..6)%></option>
+              </select>
+          </div>
+          <button id="cart_btn" type="button" class="btn btn-success ">adicionar ao meu carrinho</button>
+        </div>
+      <% end %>
+    <% end %>
+</div>
+
+  <div class="title_spacing"><h3>Bebidas:</h3></div>
+<div class="container">
+    <% @meals.each do |meal| %>
+      <%if meal.category == "Bebidas"%> <!-- Onde jogo isso aqui pra nao poluir o erb -->
+        <div class="box"> 
+          <div class="business_img" style="background-image: url('<%= url_for(meal.image)%>');">
+            <div id="img_desc"><%= meal.name %></div>
+          </div>
+          <div id="food_desc"><%= meal.description %></div>
+          <div id="price_desc">R$ <%= meal.price %>  por unidade</div>
+          <div id="qtd_style">Quantidade:</div>
+          <div> <!-- Olhar como colocar o select e o botão alinhados ao resto das divs -->
+              <select class="form-control col-10" name="amount" id="meals_amount"> <!-- Dar uma olhada nesse dropdown dps pra estilizar mais -->
+                <option value="">Selecionar</option>
+                <option value="meals_number"><%=options_for_select(0..6)%></option>
+              </select>
+          </div>
+          <button id="cart_btn" type="button" class="btn btn-success ">adicionar ao meu carrinho</button>
+        </div>
+      <% end %>
+    <% end %>
+</div>
+
+<hr id="hr_line">
+
+
+<%= link_to "Sair", destroy_user_session_path, method: :delete %>
+<%= link_to "Login", user_session_path %>
+<%= link_to "Signup", new_user_registration_path %>
+<%= link_to "Edit", edit_user_registration_path %>
+
