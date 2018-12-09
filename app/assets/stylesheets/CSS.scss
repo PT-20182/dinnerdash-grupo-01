@@ -1,0 +1,154 @@
+* {
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+}
+
+.cabecalho {
+	background-color: #cdcdcd;
+	color: #6B6C6D;
+	border-radius: 7px;
+	padding: 0.6em 2.1em;
+	border:none;
+	margin: 10px;
+	width: 200px;
+	margin-top: 2em;
+}
+
+.entregue {
+	border-radius: 5px;
+	padding: 3em;
+	margin: 4px;
+	color: white;
+}
+
+.pendente {
+	border-radius: 5px;
+	padding: 3em;
+	margin: 4px;
+	color: white;
+}
+
+.cancelado {
+	border-radius: 5px;
+	padding: 3em;
+	margin: 4px;
+	color: white;
+}
+
+.tableRow  th {
+	padding: 0.6em 2.1em;
+	border:none;
+	margin: 10px;
+	width: 200px;
+	margin-top: 2em;
+}
+
+.tableRow td{
+	border-top: 1px solid #dee2e6;
+ 	padding: 0.8em 2.1em;
+	margin: 1em;
+	
+}
+
+.fonteAzul{
+	color: #007bff;
+}
+
+.fonteVermelho {
+	color: #E82431;
+}
+
+.fonteAmarelo{
+	color: #FDDF4C;
+}
+
+.tbody {
+	color: #868686;
+	padding: 3em;
+}
+
+.tabela {
+	border-spacing: 0;
+	text-align: center;
+	margin-top: 1em;
+}
+
+.tabela td {
+    border-top: 1px solid #dee2e6;
+	margin: 2em;
+}
+
+.headImage {
+	background-image: url("backoffice.jpg");
+	background-size: 100%;
+	color: white;
+	padding: 1em 3em;
+	height: 700px;
+}
+
+.headImage h1 {
+	font-size: 80px;
+}
+
+.headImage h3 {
+	font-size: 40px;
+}
+
+.dinnerdash {
+	font-size: 30px;
+}
+
+.navbar {
+	background-color: black;
+	color: white;
+	padding: 1.5em;
+}
+
+.navbar span{
+	margin: 2em;
+}
+
+.entregue span{
+	padding: 0em;
+	margin: 0em;
+}
+
+.tbody tr{
+	padding: 3em;
+	margin: 2em;
+}
+
+.teste {
+	padding: 0.5em 1em;
+	background-color: #28a745;
+	border-radius: 5px;
+}
+
+.cancelado2 {
+	padding: 0.5em 1em;
+	background-color: #E82431;
+	border-radius: 5px;
+}
+
+
+.pendente2 {
+	padding: 0.5em 1em;
+	background-color: #007bff;
+	border-radius: 5px;
+}
+
+.endbar{
+ margin: 4em;
+ background-color: #868686;
+ color: white;
+ padding: 0.5em 1em;
+ border-radius: 5px;
+}
+
+.float {
+	float: right;
+	font-size: 20px;
+}
+
+.direita {
+	float: right;
+}

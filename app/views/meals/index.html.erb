@@ -1,30 +1,30 @@
-<h1>Meals#index</h1>
-<p>Find me in app/views/meals/index.html.erb</p>
+ <%= render  "meals/header" %>
 
-<h1>Hello, Rails!</h1>
-<%= link_to 'dinnerdash', controller: 'meals' %>
+<div class="container-fluid">
+          <table class="table table-hover tabela">
+            <thead class="table-active">
+              <tr class="cabecalho">
+                <th scope="col">Nome</th>
+                <th scope="col">Categoria</th>
+                <th scope="col" colspan="3">Preço</th>
+              </tr>
+            </thead>
+            <% @meals.all.each do |meal| %>
+            <tbody class = "text-muted">
+                <tr class="corpo">
+                  <td><%= meal.name %></td>
+                  <td> <%= meal.category %> </td>
+                  <td> <%= meal.price%> </td>
+                  <td> <%= image_tag  meal.image %> </td>
+                  <td><%= link_to 'Editar', edit_meal_path(meal), method: 'get', class: "text-warning"%></td>
+                  <td><%= link_to 'Remover', meal_path(meal), method: 'delete', data: { confirm: 'Tem certeza?' }, class: "text-danger"%></td>
+                </tr>
+            </tbody>
+            <% end %>
+          </table>
+         <%= link_to "Criar nova refeição", new_meal_path, class:"btn btn-success"%>
+        </div>
 
 
-<h1>Listing articles</h1>
- 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Text</th>
-    <th></th>
-  </tr>
- 
-  <% @meals.each do |meal| %>
-    <tr>
-      <td><%= meal.name %></td>
-      <td><%= meal.category %></td>
-      <td><%= meal.price %></td>
-      <td><%= link_to 'Show', meal_path(meal) %></td>
-      <td><%= link_to 'Edit', edit_meal_path(meal) %></td>
-       <td><%= link_to 'Destroy', meal_path(meal),
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-  <% end %>
-  <%= link_to 'New Meal', new_meal_path %>
-</table>
+
+<%= render  "meals/footer" %>
