@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+
+  # resource :cart, only: [:show]
+  put '/add_item_to_cart', to: 'cart#add_item_to_cart', as: 'add_item_to_cart'
+  
+
   get 'meals/index'
   get 'meals/show'
   get 'meals/new'
