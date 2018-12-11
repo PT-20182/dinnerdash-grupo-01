@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
-
-  # resource :cart, only: [:show]
+  # Cart actions
   put '/add_item_to_cart', to: 'cart#add_item_to_cart', as: 'add_item_to_cart'
-  
+  delete '/remove_item_from_cart', to: 'cart#remove_item_from_cart', as: 'remove_item_from_cart'
 
   get 'meals/index'
   get 'meals/show'
