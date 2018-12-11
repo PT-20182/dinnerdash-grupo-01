@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 2018_11_24_174615) do
     t.bigint "record_id", null: false
     t.bigint "blob_id", null: false
     t.datetime "created_at", null: false
-    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
+    t.index ["blob_id"], name: "index_ac3000tive_storage_attachments_on_blob_id"
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
   end
 
