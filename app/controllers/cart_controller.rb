@@ -8,7 +8,7 @@ class CartController < ApplicationController
   end
   
   def remove_item_from_cart
-    set_cart.delete_at(params[:id])
+    set_cart.delete_if {|x| x["id"] == params[:id]}
 
     redirect_to root_path
   end

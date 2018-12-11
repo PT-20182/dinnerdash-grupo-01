@@ -29,14 +29,14 @@
             <div id="img_desc"><%= meal.name %></div>
           </div>
           <div id="food_desc"><%= meal.description %></div>
-          <div id="price_desc">R$ <%= meal.price %>  por porção</div>
+          <div id="price_desc">R$ <%= number_to_currency(meal.price) %>  por porção</div>
           <div id="qtd_style">Quantidade:</div>
           
           <%= form_tag(add_item_to_cart_path, method: :put) do %>
             <%= hidden_field_tag :id, meal.id %>
             <%= number_field_tag :quantity,'Quantidade', class: "form-control col-10", placeholder: "Quantidade", id:"meals_amount", min: 1%>
             <div class="price-container">
-              <span class="price"><%= submit_tag "adicionar ao meu carrinho", class: "btn btn-success", id: "cart_btn", data: { confirm: "Quer mesmo adicionar essa ref ao cart?" } %></span>
+              <span class="price"><%= submit_tag "adicionar ao meu carrinho", class: "btn btn-success", id: "cart_btn", data: { confirm: "Quer mesmo adicionar #{meal.name} ao seu prato?" } %></span>
             </div>
           <% end %>
         </div>
@@ -53,13 +53,13 @@
             <div id="img_desc"><%= meal.name %></div>
           </div>  
           <div id="food_desc"><%= meal.description %></div>
-          <div id="price_desc">R$ <%= meal.price %>  por porção</div>
+          <div id="price_desc">R$ <%= number_to_currency(meal.price) %>  por porção</div>
           <div id="qtd_style">Quantidade:</div>
           <%= form_tag(add_item_to_cart_path, method: :put) do %>
             <%= hidden_field_tag :id, meal.id %>
             <%= number_field_tag :quantity,'Quantidade', class: "form-control col-10", placeholder: "Quantidade", id:"meals_amount", min: 1%>
             <div class="price-container">
-              <span class="price"><%= submit_tag "adicionar ao meu carrinho", class: "btn btn-success", id: "cart_btn", data: { confirm: "Quer mesmo adicionar essa ref ao cart?" } %></span>
+              <span class="price"><%= submit_tag "adicionar ao meu carrinho", class: "btn btn-success", id: "cart_btn", data: { confirm: "Quer mesmo adicionar #{meal.name} ao seu prato?" } %></span>
             </div>
           <% end %>
         </div>
@@ -76,13 +76,13 @@
             <div id="img_desc"><%= meal.name %></div>
           </div>
           <div id="food_desc"><%= meal.description %></div>
-          <div id="price_desc">R$ <%= meal.price %>  por porção</div>
+          <div id="price_desc">R$ <%= number_to_currency(meal.price) %>  por porção</div>
           <div id="qtd_style">Quantidade:</div>
           <%= form_tag(add_item_to_cart_path, method: :put) do %>
             <%= hidden_field_tag :id, meal.id %>
             <%= number_field_tag :quantity,'Quantidade', class: "form-control col-10", placeholder: "Quantidade", id:"meals_amount", min: 1%>
             <div class="price-container">
-              <span class="price"><%= submit_tag "adicionar ao meu carrinho", class: "btn btn-success", id: "cart_btn", data: { confirm: "Quer mesmo adicionar essa ref ao cart?" } %></span>
+              <span class="price"><%= submit_tag "adicionar ao meu carrinho", class: "btn btn-success", id: "cart_btn", data: { confirm: "Quer mesmo adicionar #{meal.name} ao seu prato?" } %></span>
             </div>
           <% end %>
         </div>
@@ -99,13 +99,13 @@
             <div id="img_desc"><%= meal.name %></div>
           </div>
           <div id="food_desc"><%= meal.description %></div>
-          <div id="price_desc">R$ <%= meal.price %>  por porção</div>
+          <div id="price_desc">R$ <%= number_to_currency(meal.price) %>  por porção</div>
           <div id="qtd_style">Quantidade:</div>
           <%= form_tag(add_item_to_cart_path, method: :put) do %>
             <%= hidden_field_tag :id, meal.id %>
             <%= number_field_tag :quantity,'Quantidade', class: "form-control col-10", placeholder: "Quantidade", id:"meals_amount", min: 1%>
             <div class="price-container">
-              <span class="price"><%= submit_tag "adicionar ao meu carrinho", class: "btn btn-success", id: "cart_btn", data: { confirm: "Quer mesmo adicionar essa ref ao cart?" } %></span>
+              <span class="price"><%= submit_tag "adicionar ao meu carrinho", class: "btn btn-success", id: "cart_btn", data: { confirm: "Quer mesmo adicionar #{meal.name} ao seu prato?" } %></span>
             </div>
           <% end %>
         </div>
@@ -122,13 +122,13 @@
             <div id="img_desc"><%= meal.name %></div>
           </div>
           <div id="food_desc"><%= meal.description %></div>
-          <div id="price_desc">R$ <%= meal.price %> por unidade</div>
+          <div id="price_desc">R$ <%= number_to_currency(meal.price) %> por unidade</div>
           <div id="qtd_style">Quantidade:</div>
           <%= form_tag(add_item_to_cart_path, method: :put) do %>
             <%= hidden_field_tag :id, meal.id %>
             <%= number_field_tag :quantity,'Quantidade', class: "form-control col-10", placeholder: "Quantidade", id:"meals_amount", min: 1%>
             <div class="price-container">
-              <span class="price"><%= submit_tag "adicionar ao meu carrinho", class: "btn btn-success", id: "cart_btn", data: { confirm: "Quer mesmo adicionar essa refeição ao seu prato?" } %></span>
+              <span class="price"><%= submit_tag "adicionar ao meu carrinho", class: "btn btn-success", id: "cart_btn", data: { confirm: "Quer mesmo adicionar #{meal.name} ao seu prato?" } %></span>
             </div>
           <% end %>
         </div>
@@ -153,15 +153,15 @@
           <% if item.values[0].to_i == meal.id.to_i%>
             <h5><%= meal.name %></h3> 
             <h6 class="cart_info">Quantidade: <%= item.values[1] %> </h6>
-            <h6 class="cart_info">Preço unitário: R$ <%= meal.price %> </h6>
-            <h6 class="cart_info">Preço total: R$ <%= meal.price.to_f * item.values[1].to_f %></h6>
+            <h6 class="cart_info">Preço unitário: R$ <%= number_to_currency(meal.price) %> </h6>
+            <h6 class="cart_info">Preço total: R$ <%= number_to_currency(meal.price.to_f * item.values[1].to_f) %></h6>
           <% end %>
         <% end %>
       </div>
-      <%= form_tag(remove_item_from_cart_path, method: :delete) do %>
+      <%= form_tag("", method: :delete) do %>
         <div id="qtd_cart">Quantidade:</div>
         <%= number_field_tag :quantity,'Quantidade', class: "form-control col-10", placeholder: "1", id:"meals_amount", min: 1, max: item.values[1] %>
-        <span class="price"><%= submit_tag "remover do meu prato", class: "btn btn-outline-danger", id: "cart_btn", data: { confirm: "Deseja mesmo excluir essa refeição do seu carrinho?" } %></span>
+        <span class="price"><%= link_to "remover do meu prato", remove_item_from_cart_path(item.values[0]),  method: :delete , class: "btn btn-outline-danger", id: "cart_btn", data: { confirm: "Deseja mesmo excluir essa refeição do seu carrinho?" } %></span>
       <% end %>
     </div>
   <% end %>
@@ -170,35 +170,38 @@
 
 <hr id="hr_line">
 
-<div class="title_spacing">
+<div class="checkout_message final_price_line">
   <h3>Preço total do pedido: </h3>
-
-  <p> <!-- Dar um jeito de mostrar a mensagem se não estiver logado, se estiver só vai pcr --></p>
+  <% total = 0 %>
+  <% session[:cart].each do |item| %>
+    <% total += ((Meal.find(item.values[0].to_f).price)*(item.values[1].to_f)) %>
+  <% end %>
+  <h3 id="cart_value"> R$ <%= number_to_currency(total) %> </h3>
+</div>
+<div class="checkout_message">
+  <% if user_signed_in? %>
+  <p>logado</p>
+  <% else %>
+  <p id="login_signup_message"> Para finalizar o seu pedido, entre com sua conta ou faça o seu cadastro.</p>
+    <%= link_to "entrar com minha conta", user_session_path , class: "btn btn-success"%>
+    <%= link_to "fazer o meu cadastro", new_user_registration_path , class: "btn btn-outline-success"%>
+  <% end %> <!-- consertar isso aqui ta zuado o front -->
 </div>
 
+ <!-- Consertar essa parte pra alinhar o botão -->
+<nav class="footer">
+  <div class="navbar">
+    <div class="footer_rights">
+      <h5>dinnerdash | todos os direitos reservados</h5>
+    </div>
+    <div class="footer_members">
+      <p>Desenvolvido por Gabriel Bessa, Conrado Nunes e Victor Girão</p>
+    </div>
+  </div>
+</nav>
 
 <hr id="hr_line">
 <h1> debugger </h1>
-
-<% @meals.each do |y| %>
-      nome:<%= y.name %>
-      id:<%= y.id %>
-      categoria:<%= y.category %>
-      preço:<%= y.price %>
-      descrição:<%= y.description %>
-<br> <br>
-<% end %>
-<br><br>
-
-<% session[:cart].each do |item| %>
-  <%= item.values[0] %>
-<% end %>
-<br><br>
-
-<%= session[:cart] %>
-<br><br>
-
-
 
 <hr id="hr_line">
 

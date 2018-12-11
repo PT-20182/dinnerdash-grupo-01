@@ -116,15 +116,36 @@ a:hover {
 }
 
 .footer {
-  margin-top: 1em;
+  margin-top: -5em;
   background: #F2F2F2;
+  font-weight: bold;
+
 }
+
+.footer_rights {
+  margin-left: 5em;
+}
+
+.footer_members {
+  display: flex;
+  flex-direction: row;
+  margin-right: 5em;
+  margin-top: 10px;
+  overflow: hidden;
+}
+
+
 
 .title_spacing{
   margin-left: 132px;
   margin-top: 10px;
   padding-top: 10px;
   padding-bottom: 10px;
+}
+
+.checkout_message{
+  margin-left: 132px;
+  margin-top: 10px;
 }
 
 .cart_info {
@@ -134,6 +155,11 @@ a:hover {
 
 .cart_spacing {
   margin-right: 1vw;
+}
+
+.final_price_line {
+  display: flex;
+  flex-direction: row;
 }
 
 /* IDS */
@@ -180,13 +206,22 @@ a:hover {
   overflow: hidden;
 }
 
-
+#cart_value {
+  color: #3AC86F;
+  font-weight: bold;
+  margin-left: 10px;
+  overflow: hidden;
+}
 
 #price_desc {
   color: #3AC86F;
   font-weight: bold;
   margin-left: 10px;  
   margin-top: 10px;
+}
+
+#login_signup_message {
+  color: #ACACAC;
 }
 
 #cart_btn {
