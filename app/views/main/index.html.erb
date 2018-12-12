@@ -1,26 +1,35 @@
 <%= stylesheet_link_tag "main" %>
 <% session[:cart] ||=[] %>
 
-<div class="restaurant_img">
+<div class="menu_img">
   <nav>
     <div class="navbar">
       <div class="margin_div_dinnerdash">
         <h3>dinnerdash</h3>
       </div>
       <div class="margin_div_dinnerdash2">
-        <h5 class="space_between"><%= link_to "entrar", new_user_session_path, class: "link_color"%></h5>
-        <h5><%= link_to "cadastro", new_user_registration_path, class:"link_color" %></h5>
-
+        <% if user_signed_in? %>
+          <h5 class="space_between"><%= link_to "perfil", edit_user_registration_path, class:"link_color" %></h5>
+          <h5><%= link_to "sair", destroy_user_session_path, method: :delete, class: "link_color" %></h5>
+        <% else %>  
+          <h5 class="space_between"><%= link_to "entrar", new_user_session_path, class: "link_color"%></h5>
+          <h5><%= link_to "cadastro", new_user_registration_path, class:"link_color" %></h5>
+        <% end %>
       </div>
     </div>
   </nav>
   <div class="margin_div">
-    <h1 id="header_font">Monte o seu prato</h1>
-    <h4>Escolha sua salada, molho, prato principal, guarnição e bebida</h2>
+    <% if user_signed_in? %>
+      <h1 id="header_font"><%= "Bem-vindo, #{current_user.name.capitalize!}" %></h1>
+      <h4>Monte o seu prato, escolha sua salada, molho, prato principal, guarnição e bebida</h2>
+    <% else %>
+      <h1 id="header_font">Monte o seu prato</h1>
+      <h4>Escolha sua salada, molho, prato principal, guarnição e bebida</h2>
+    <% end %>
   </div>
 </div>
 
-  <div class="title_spacing"><h3>Saladas</h3></div>
+<div class="title_spacing"><h3>Saladas</h3></div>
 <div class="container">
     <% @meals.each do |meal| %>
       <%if meal.category == "Saladas"%> <!-- Onde jogo isso aqui pra nao poluir o erb -->
@@ -161,7 +170,7 @@
       <%= form_tag("", method: :delete) do %>
         <div id="qtd_cart">Quantidade:</div>
         <%= number_field_tag :quantity,'Quantidade', class: "form-control col-10", placeholder: "1", id:"meals_amount", min: 1, max: item.values[1] %>
-        <span class="price"><%= link_to "remover do meu prato", remove_item_from_cart_path(item.values[0]),  method: :delete , class: "btn btn-outline-danger", id: "cart_btn", data: { confirm: "Deseja mesmo excluir essa refeição do seu carrinho?" } %></span>
+        <span class="price"><%= link_to "remover do meu prato", remove_item_from_cart_main_path(item.values[0]),  method: :delete , class: "btn btn-outline-danger", id: "cart_btn", data: { confirm: "Deseja mesmo excluir essa refeição do seu carrinho?" } %></span>
       <% end %>
     </div>
   <% end %>
@@ -180,7 +189,7 @@
 </div>
 <div class="checkout_message">
   <% if user_signed_in? %>
-  <p>logado</p>
+    <%= link_to "finalizar e pagar", user_session_path, class: "btn btn-success"%>
   <% else %>
   <p id="login_signup_message"> Para finalizar o seu pedido, entre com sua conta ou faça o seu cadastro.</p>
     <%= link_to "entrar com minha conta", user_session_path , class: "btn btn-success"%>
@@ -200,14 +209,9 @@
   </div>
 </nav>
 
-<hr id="hr_line">
-<h1> debugger </h1>
-
-<hr id="hr_line">
-
-
-<%= link_to "Sair", destroy_user_session_path, method: :delete %>
-<%= link_to "Login", user_session_path %>
-<%= link_to "Signup", new_user_registration_path %>
-<%= link_to "Edit", edit_user_registration_path %>
-
+<!--
+<%#= link_to "Sair", destroy_user_session_path, method: :delete %>
+<%#= link_to "Login", user_session_path %>
+<%#= link_to "Signup", new_user_registration_path %>
+<%#= link_to "Edit", edit_user_registration_path %>
+-->
