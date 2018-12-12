@@ -32,6 +32,14 @@ a:hover {
   color: #F2F2F2;
 }
 
+.btn-checkout {
+  margin-left: 0px !important;
+}
+
+.btn-spacing {
+  margin-left: 10px;
+}
+
 .margin_div{
   margin-left: 4em;
   margin-top: 9em;
@@ -51,8 +59,8 @@ a:hover {
   padding-right: 10px;
 }
 
-.restaurant_img {
-  background-image: url("restaurant.jpeg");
+.menu_img {
+  background-image: url("menu.jpeg");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: local;
@@ -65,11 +73,14 @@ a:hover {
 .container {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-around; // Se mudar pra flex_start começa no inicio da linha e n na meiuca
+  flex-wrap: wrap;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 
-.box {
+.meal_box {
   width: 18.5vw;
   height: 64vh;
   background-color: white;
@@ -79,8 +90,27 @@ a:hover {
   border-color: #DEDEDE; 
 }
 
-.business_img {
-  // background-image: url("business.jpg");
+.cart_box {
+  display: flex;
+  width: 40vw;
+  height: 20vh;
+  background-color: white;
+  overflow: hidden;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.text_box {
+  width: 50vw;
+  height: 30vh;
+  background-color: white;
+  overflow: hidden;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  margin-left: 132px;
+}
+
+.meals_img {
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: local;
@@ -91,10 +121,38 @@ a:hover {
   position: relative; 
 }
 
-.footer {
-  margin-top: 1em;
-  background: #F2F2F2;
+.cart_img {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: local;
+  background-position: center;
+  height: 19vh;
+  width: 10vw;  
+  color: white;
+  position: relative;
+  margin-right: 5px; 
 }
+
+.footer {
+  // margin-top: -5em;
+  background: #F2F2F2;
+  font-weight: bold;
+  color: #747474;
+}
+
+.footer_rights {
+  margin-left: 5em;
+}
+
+.footer_members {
+  display: flex;
+  flex-direction: row;
+  margin-right: 5em;
+  margin-top: 10px;
+  overflow: hidden;
+}
+
+
 
 .title_spacing{
   margin-left: 132px;
@@ -103,6 +161,32 @@ a:hover {
   padding-bottom: 10px;
 }
 
+.checkout_message{
+  margin-left: 132px;
+  margin-top: 10px;
+}
+
+.cart_info {
+  color: #ACACAC;
+  font-weight: bold;
+}
+
+.cart_spacing {
+  margin-right: 1vw;
+}
+
+.final_price_line {
+  display: flex;
+  flex-direction: row;
+}
+
+.title_styles {
+  color:#747474;
+}
+
+.login_signup_message {
+  color: #ACACAC;
+}
 /* IDS */
 
 #header_font {
@@ -131,12 +215,26 @@ a:hover {
   margin-bottom: 10px;
 }
 
+#qtd_cart{
+  color: #ACACAC;
+  font-weight: bold;
+  margin-left: 20px;
+  margin-bottom: 4px;
+}
+
 #food_desc {
   color: #ACACAC;
   margin-top: 10px;
   margin-left: 10px;
   font-size: 15px;
   height: 7vh;
+  overflow: hidden;
+}
+
+#cart_value {
+  color: #3AC86F;
+  font-weight: bold;
+  margin-left: 10px;
   overflow: hidden;
 }
 
@@ -147,10 +245,11 @@ a:hover {
   margin-top: 10px;
 }
 
+
 #cart_btn {
   margin-top: 15px;
 }
 
 #hr_line {
-  background-color: #2E1E1A;
+  background-color: #DEDEDE;
 }
