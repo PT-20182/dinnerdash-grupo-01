@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2018_12_12_161247) do
+=======
+ActiveRecord::Schema.define(version: 2018_11_27_133526) do
+>>>>>>> cart
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +40,24 @@ ActiveRecord::Schema.define(version: 2018_12_12_161247) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+<<<<<<< HEAD
+=======
+  create_table "admins", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.integer "sign_in_count", default: 0
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
+    t.integer "failed_attempts", default: 0
+    t.string "unlock_token"
+    t.datetime "locked_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+>>>>>>> cart
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.integer "quantity"
@@ -74,6 +96,9 @@ ActiveRecord::Schema.define(version: 2018_12_12_161247) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
+<<<<<<< HEAD
 
   add_foreign_key "orders", "users"
+=======
+>>>>>>> cart
 end

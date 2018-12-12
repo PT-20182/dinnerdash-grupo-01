@@ -1,0 +1,165 @@
+@import 'bootstrap';
+
+// overriding css stuff //
+.btn {
+  margin-left: 20px;
+  margin-bottom: 100px;
+}
+
+.form-control {
+  cursor: pointer;
+  margin-left: 20px;
+}
+// ---------------------------- //
+
+* {
+  box-sizing: border-box;
+}
+
+
+html {
+  font-family:  -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+}
+
+a:hover {
+  text-decoration: none;
+  color: yellow; 
+}
+
+/* Classes */
+
+.link_color{
+  color: #F2F2F2;
+}
+
+
+.margin_div{
+  margin-left: 4em;
+  margin-top: 9em;
+}
+
+.margin_div_dinnerdash{
+  margin-left: 4em;
+}
+
+.margin_div_dinnerdash2{
+  display: flex;
+  flex-direction: row;
+  margin-right: 5em;
+}
+
+.space_between{
+  padding-right: 10px;
+}
+
+.meal_img {
+  background-image: url("meal.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: local;
+  background-position: center;
+  height: 55vh;
+  width: 100vw;  
+  color: white;
+}
+
+.stronger_font{
+  color: #5E5E5E;
+}
+
+.lighter_font{
+  color: #B3B3B3;
+  font-weight: bold;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around; // Se mudar pra flex_start começa no inicio da linha e n na meiuca
+  flex-wrap: wrap;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.title_spacing{
+  margin-left: 132px;
+  margin-top: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.text_spacing{
+  margin-top: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.checkout_message{
+  margin-left: 132px;
+  margin-top: 10px;
+}
+
+.final_price_line {
+  display: flex;
+  flex-direction: row;
+}
+
+.cart_box {
+  display: flex;
+  width: 40vw;
+  height: 20vh;
+  background-color: white;
+  overflow: hidden;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.text_box {
+  display: flex;
+  width: 40vw;
+  height: 20vh;
+  background-color: white;
+  overflow: hidden;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+
+.cart_img {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: local;
+  background-position: center;
+  height: 19vh;
+  width: 10vw;  
+  color: white;
+  position: relative;
+  margin-right: 5px; 
+}
+
+.cart_spacing {
+  margin-right: 1vw;
+}
+
+.footer {
+  background: #F2F2F2;
+  font-weight: bold;
+}
+
+/* IDS */
+
+#header_font {
+  font-size: 5em;
+}
+
+
+#hr_line {
+  background-color: #DEDEDE;
+}
+
+#cart_value {
+  color: #3AC86F;
+  font-weight: bold;
+  margin-left: 10px;
+  overflow: hidden;
+}

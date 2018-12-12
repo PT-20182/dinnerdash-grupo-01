@@ -1,0 +1,120 @@
+<%= stylesheet_link_tag "cart" %>
+<% session[:cart] ||=[] %>
+
+<div class="meal_img">
+  <nav>
+    <div class="navbar">
+      <div class="margin_div_dinnerdash">
+        <h3>dinnerdash</h3>
+      </div>
+      <div class="margin_div_dinnerdash2">
+        <% if user_signed_in? %>
+          <h5 class="space_between"><%= link_to "perfil", edit_user_registration_path, class:"link_color" %></h5>
+          <h5><%= link_to "sair", destroy_user_session_path, method: :delete, class: "link_color" %></h5>
+        <% else %>  
+          <h5 class="space_between"><%= link_to "entrar", new_user_session_path, class: "link_color"%></h5>
+          <h5><%= link_to "cadastro", new_user_registration_path, class:"link_color" %></h5>
+        <% end %>
+      </div>
+    </div>
+  </nav>
+  <div class="margin_div">
+    <% if user_signed_in? %>
+      <h1 id="header_font"><%= "Bem-vindo, #{current_user.name.capitalize!}" %></h1>
+      <h4>Monte o seu prato, escolha sua salada, molho, prato principal, guarnição e bebida</h2>
+    <% else %>
+      <h1 id="header_font">Monte o seu prato</h1>
+      <h4>Escolha sua salada, molho, prato principal, guarnição e bebida</h2>
+    <% end %>
+  </div>
+</div>
+
+<div class="title_spacing">
+  <h3 class="stronger_font">O seu pedido:</h3>
+  <p class="lighter_font"> Confira os itens pedidos antes de finalizar o pedido.</p>
+</div>
+
+
+<div class="container">
+
+  <% session[:cart].each do |item| %>
+    <div class="cart_box">
+      <div class="cart_img" style="background-image: url('<%= url_for(Meal.find(item.values[0]).image)%>');"></div>
+      <div class="cart_spacing">
+        <% @meals.each do |meal|%>
+          <% if item.values[0].to_i == meal.id.to_i%>
+            <h5><%= meal.name %></h3> 
+            <h6 class="cart_info">Quantidade: <%= item.values[1] %> </h6>
+            <h6 class="cart_info">Preço unitário: R$ <%= number_to_currency(meal.price) %> </h6>
+            <h6 class="cart_info">Preço total: R$ <%= number_to_currency(meal.price.to_f * item.values[1].to_f) %></h6>
+          <% end %>
+        <% end %>
+      </div>
+      <%= form_tag("", method: :delete) do %>
+        <div id="qtd_cart">Quantidade:</div>
+        <%= number_field_tag :quantity,'Quantidade', class: "form-control col-10", placeholder: "1", id:"meals_amount", min: 1, max: item.values[1] %>
+        <span class="price"><%= link_to "remover do meu prato", remove_item_from_cart_checkout_path(item.values[0]),  method: :delete , class: "btn btn-outline-danger", id: "cart_btn", data: { confirm: "Deseja mesmo excluir essa refeição do seu carrinho?" } %></span>
+      <% end %>
+    </div>
+  <% end %>
+  
+</div>
+
+<hr id="hr_line">
+
+<div class="container">
+  <div class="text_box"> 
+    <div class="text_spacing">
+      <h4> Esqueceu algo? </h4>
+      <p> <%= link_to "Clique aqui", root_path %> para retornar ao nosso menu. </p>
+    </div>
+  </div>
+  <div class="text_box"> 
+    <div class="text_spacing">
+      <div class="final_price_line">
+  <h3>Preço total do pedido: </h3>
+  <% total = 0 %>
+  <% session[:cart].each do |item| %>
+    <% total += ((Meal.find(item.values[0].to_f).price)*(item.values[1].to_f)) %>
+  <% end %>
+  <h3 id="cart_value"> R$ <%= number_to_currency(total) %> </h3>
+</div>
+<div class="">
+  <% if user_signed_in? %>
+    <%= link_to "finalizar e pagar", user_session_path, class: "btn btn-success"%>
+  <% else %>
+  <p id="login_signup_message"> Para finalizar o seu pedido, entre com sua conta ou faça o seu cadastro.</p>
+    <%= link_to "entrar com minha conta", user_session_path , class: "btn btn-success"%>
+    <%= link_to "fazer o meu cadastro", new_user_registration_path , class: "btn btn-outline-success"%>
+  <% end %> <!-- consertar isso aqui ta zuado o front -->
+</div>
+    </div>
+  </div>
+</div>
+
+<hr id="hr_line">
+
+
+
+<nav class="footer">
+  <div class="navbar">
+    <div class="footer_rights">
+      <h5>dinnerdash | todos os direitos reservados</h5>
+    </div>
+    <div class="footer_members">
+      <p>Desenvolvido por Gabriel Bessa, Conrado Nunes e Victor Girão</p>
+    </div>
+  </div>
+</nav>
+
+<hr id="hr_line">
+
+
+<div>
+
+<h3> Debugger </h3>
+
+<%= session[:cart] %>
+
+
+</div>

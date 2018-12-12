@@ -1,7 +1,12 @@
-<h3>Create a Category</h3>
-<%= form_with model: @category do |form| %>
-  <%= form.text_field :name, placeholder: "Nome" %>
-  <%= form.number_field :quantity, placeholder: "Quantidade" %>
+<%= render 'categories/header'%>
+  <div class="container-fluid tabela d-flex justify-content-center">
+    <%= form_with model: @category do |form| %>
+      <h1>Nova Categoria</h1>
+      <p><%= form.text_field :name, placeholder: "Nome", class: "input"%></p>
+      <p><%= form.number_field :quantity, placeholder: "Quantidade", class: "input"%></p>
 
-  <%= form.submit %>
-<% end %>
+    <%= form.submit class: "btn btn-success"%>
+    <% end %>
+  </div>
+<%= render 'categories/footer'%>
+

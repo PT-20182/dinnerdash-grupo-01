@@ -1,2 +1,217 @@
-<h1>Main#index</h1>
-<p>Find me in app/views/main/index.html.erb</p>
+<%= stylesheet_link_tag "main" %>
+<% session[:cart] ||=[] %>
+
+<div class="menu_img">
+  <nav>
+    <div class="navbar">
+      <div class="margin_div_dinnerdash">
+        <h3>dinnerdash</h3>
+      </div>
+      <div class="margin_div_dinnerdash2">
+        <% if user_signed_in? %>
+          <h5 class="space_between"><%= link_to "perfil", edit_user_registration_path, class:"link_color" %></h5>
+          <h5><%= link_to "sair", destroy_user_session_path, method: :delete, class: "link_color" %></h5>
+        <% else %>  
+          <h5 class="space_between"><%= link_to "entrar", new_user_session_path, class: "link_color"%></h5>
+          <h5><%= link_to "cadastro", new_user_registration_path, class:"link_color" %></h5>
+        <% end %>
+      </div>
+    </div>
+  </nav>
+  <div class="margin_div">
+    <% if user_signed_in? %>
+      <h1 id="header_font"><%= "Bem-vindo, #{current_user.name.capitalize!}" %></h1>
+      <h4>Monte o seu prato, escolha sua salada, molho, prato principal, guarnição e bebida</h2>
+    <% else %>
+      <h1 id="header_font">Monte o seu prato</h1>
+      <h4>Escolha sua salada, molho, prato principal, guarnição e bebida</h2>
+    <% end %>
+  </div>
+</div>
+
+<div class="title_spacing"><h3>Saladas</h3></div>
+<div class="container">
+    <% @meals.each do |meal| %>
+      <%if meal.category == "Saladas"%> <!-- Onde jogo isso aqui pra nao poluir o erb -->
+        <div class="meal_box"> 
+          <div class="meals_img" style="background-image: url('<%= url_for(meal.image)%>');">
+            <div id="img_desc"><%= meal.name %></div>
+          </div>
+          <div id="food_desc"><%= meal.description %></div>
+          <div id="price_desc">R$ <%= number_to_currency(meal.price) %>  por porção</div>
+          <div id="qtd_style">Quantidade:</div>
+          
+          <%= form_tag(add_item_to_cart_path, method: :put) do %>
+            <%= hidden_field_tag :id, meal.id %>
+            <%= number_field_tag :quantity,'Quantidade', class: "form-control col-10", placeholder: "Quantidade", id:"meals_amount", min: 1%>
+            <div class="price-container">
+              <span class="price"><%= submit_tag "adicionar ao meu carrinho", class: "btn btn-success", id: "cart_btn", data: { confirm: "Quer mesmo adicionar #{meal.name} ao seu prato?" } %></span>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    <% end %>
+</div>
+
+  <div class="title_spacing"><h3>Molhos</h3></div>
+<div class="container">
+    <% @meals.each do |meal| %>
+      <%if meal.category == "Molhos"%> <!-- Onde jogo isso aqui pra nao poluir o erb -->
+        <div class="meal_box"> 
+          <div class="meals_img" style="background-image: url('<%= url_for(meal.image)%>');">
+            <div id="img_desc"><%= meal.name %></div>
+          </div>  
+          <div id="food_desc"><%= meal.description %></div>
+          <div id="price_desc">R$ <%= number_to_currency(meal.price) %>  por porção</div>
+          <div id="qtd_style">Quantidade:</div>
+          <%= form_tag(add_item_to_cart_path, method: :put) do %>
+            <%= hidden_field_tag :id, meal.id %>
+            <%= number_field_tag :quantity,'Quantidade', class: "form-control col-10", placeholder: "Quantidade", id:"meals_amount", min: 1%>
+            <div class="price-container">
+              <span class="price"><%= submit_tag "adicionar ao meu carrinho", class: "btn btn-success", id: "cart_btn", data: { confirm: "Quer mesmo adicionar #{meal.name} ao seu prato?" } %></span>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    <% end %>
+</div>
+
+  <div class="title_spacing"><h3>Pratos principais</h3></div>
+<div class="container">
+    <% @meals.each do |meal| %>
+      <%if meal.category == "Pratos Principais"%> <!-- Onde jogo isso aqui pra nao poluir o erb -->
+        <div class="meal_box"> 
+          <div class="meals_img" style="background-image: url('<%= url_for(meal.image)%>');">
+            <div id="img_desc"><%= meal.name %></div>
+          </div>
+          <div id="food_desc"><%= meal.description %></div>
+          <div id="price_desc">R$ <%= number_to_currency(meal.price) %>  por porção</div>
+          <div id="qtd_style">Quantidade:</div>
+          <%= form_tag(add_item_to_cart_path, method: :put) do %>
+            <%= hidden_field_tag :id, meal.id %>
+            <%= number_field_tag :quantity,'Quantidade', class: "form-control col-10", placeholder: "Quantidade", id:"meals_amount", min: 1%>
+            <div class="price-container">
+              <span class="price"><%= submit_tag "adicionar ao meu carrinho", class: "btn btn-success", id: "cart_btn", data: { confirm: "Quer mesmo adicionar #{meal.name} ao seu prato?" } %></span>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    <% end %>
+</div>
+
+  <div class="title_spacing"><h3>Guanirções</h3></div>
+<div class="container">
+    <% @meals.each do |meal| %>
+      <%if meal.category == "Guarnições"%> <!-- Onde jogo isso aqui pra nao poluir o erb -->
+        <div class="meal_box"> 
+          <div class="meals_img" style="background-image: url('<%= url_for(meal.image)%>');">
+            <div id="img_desc"><%= meal.name %></div>
+          </div>
+          <div id="food_desc"><%= meal.description %></div>
+          <div id="price_desc">R$ <%= number_to_currency(meal.price) %>  por porção</div>
+          <div id="qtd_style">Quantidade:</div>
+          <%= form_tag(add_item_to_cart_path, method: :put) do %>
+            <%= hidden_field_tag :id, meal.id %>
+            <%= number_field_tag :quantity,'Quantidade', class: "form-control col-10", placeholder: "Quantidade", id:"meals_amount", min: 1%>
+            <div class="price-container">
+              <span class="price"><%= submit_tag "adicionar ao meu carrinho", class: "btn btn-success", id: "cart_btn", data: { confirm: "Quer mesmo adicionar #{meal.name} ao seu prato?" } %></span>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    <% end %>
+</div>
+
+  <div class="title_spacing"><h3>Bebidas:</h3></div>
+<div class="container">
+    <% @meals.each do |meal| %>
+      <%if meal.category == "Bebidas"%>
+        <div class="meal_box"> 
+          <div class="meals_img" style="background-image: url('<%= url_for(meal.image)%>');">
+            <div id="img_desc"><%= meal.name %></div>
+          </div>
+          <div id="food_desc"><%= meal.description %></div>
+          <div id="price_desc">R$ <%= number_to_currency(meal.price) %> por unidade</div>
+          <div id="qtd_style">Quantidade:</div>
+          <%= form_tag(add_item_to_cart_path, method: :put) do %>
+            <%= hidden_field_tag :id, meal.id %>
+            <%= number_field_tag :quantity,'Quantidade', class: "form-control col-10", placeholder: "Quantidade", id:"meals_amount", min: 1%>
+            <div class="price-container">
+              <span class="price"><%= submit_tag "adicionar ao meu carrinho", class: "btn btn-success", id: "cart_btn", data: { confirm: "Quer mesmo adicionar #{meal.name} ao seu prato?" } %></span>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    <% end %>
+</div>
+
+<hr id="hr_line">
+
+<div class="title_spacing">
+  <h3>Finalizou seu pedido?</h3>
+  <p>Confira os itens pedidos antes de finalizar o pedido</p>
+</div>
+
+<div class="container">
+
+  <% session[:cart].each do |item| %>
+    <div class="cart_box">
+      <div class="cart_img" style="background-image: url('<%= url_for(Meal.find(item.values[0]).image)%>');"></div>
+      <div class="cart_spacing">
+        <% @meals.each do |meal|%>
+          <% if item.values[0].to_i == meal.id.to_i%>
+            <h5><%= meal.name %></h3> 
+            <h6 class="cart_info">Quantidade: <%= item.values[1] %> </h6>
+            <h6 class="cart_info">Preço unitário: R$ <%= number_to_currency(meal.price) %> </h6>
+            <h6 class="cart_info">Preço total: R$ <%= number_to_currency(meal.price.to_f * item.values[1].to_f) %></h6>
+          <% end %>
+        <% end %>
+      </div>
+      <%= form_tag("", method: :delete) do %>
+        <div id="qtd_cart">Quantidade:</div>
+        <%= number_field_tag :quantity,'Quantidade', class: "form-control col-10", placeholder: "1", id:"meals_amount", min: 1, max: item.values[1] %>
+        <span class="price"><%= link_to "remover do meu prato", remove_item_from_cart_main_path(item.values[0]),  method: :delete , class: "btn btn-outline-danger", id: "cart_btn", data: { confirm: "Deseja mesmo excluir essa refeição do seu carrinho?" } %></span>
+      <% end %>
+    </div>
+  <% end %>
+  
+</div>
+
+<hr id="hr_line">
+
+<div class="checkout_message final_price_line">
+  <h3>Preço total do pedido: </h3>
+  <% total = 0 %>
+  <% session[:cart].each do |item| %>
+    <% total += ((Meal.find(item.values[0].to_f).price)*(item.values[1].to_f)) %>
+  <% end %>
+  <h3 id="cart_value"> R$ <%= number_to_currency(total) %> </h3>
+</div>
+<div class="checkout_message">
+  <% if user_signed_in? %>
+    <%= link_to "finalizar e pagar", user_session_path, class: "btn btn-success"%>
+  <% else %>
+  <p id="login_signup_message"> Para finalizar o seu pedido, entre com sua conta ou faça o seu cadastro.</p>
+    <%= link_to "entrar com minha conta", user_session_path , class: "btn btn-success"%>
+    <%= link_to "fazer o meu cadastro", new_user_registration_path , class: "btn btn-outline-success"%>
+  <% end %> <!-- consertar isso aqui ta zuado o front -->
+</div>
+
+ <!-- Consertar essa parte pra alinhar o botão -->
+<nav class="footer">
+  <div class="navbar">
+    <div class="footer_rights">
+      <h5>dinnerdash | todos os direitos reservados</h5>
+    </div>
+    <div class="footer_members">
+      <p>Desenvolvido por Gabriel Bessa, Conrado Nunes e Victor Girão</p>
+    </div>
+  </div>
+</nav>
+
+<!--
+<%#= link_to "Sair", destroy_user_session_path, method: :delete %>
+<%#= link_to "Login", user_session_path %>
+<%#= link_to "Signup", new_user_registration_path %>
+<%#= link_to "Edit", edit_user_registration_path %>
+-->
