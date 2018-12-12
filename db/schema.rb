@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_27_133526) do
+ActiveRecord::Schema.define(version: 2018_12_12_171848) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,21 +36,6 @@ ActiveRecord::Schema.define(version: 2018_11_27_133526) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "admins", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.integer "sign_in_count", default: 0
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string "current_sign_in_ip"
-    t.string "last_sign_in_ip"
-    t.integer "failed_attempts", default: 0
-    t.string "unlock_token"
-    t.datetime "locked_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.integer "quantity"
@@ -65,6 +50,25 @@ ActiveRecord::Schema.define(version: 2018_11_27_133526) do
     t.decimal "price", precision: 10, scale: 2
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "availability"
+  end
+
+  create_table "order_meals", force: :cascade do |t|
+    t.integer "quantity"
+    t.bigint "order_id"
+    t.bigint "meal_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["meal_id"], name: "index_order_meals_on_meal_id"
+    t.index ["order_id"], name: "index_order_meals_on_order_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.decimal "price", precision: 40, scale: 2
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -80,4 +84,8 @@ ActiveRecord::Schema.define(version: 2018_11_27_133526) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
+
+  add_foreign_key "order_meals", "meals"
+  add_foreign_key "order_meals", "orders"
+  add_foreign_key "orders", "users"
 end

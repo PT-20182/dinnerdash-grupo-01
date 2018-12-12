@@ -1,0 +1,28 @@
+<%= stylesheet_link_tag "meals" %>
+<div class="imagem">
+  <div class="top_navbar container d-flex">
+    <div class="mr-auto p-2"><%= link_to  "Dinnerdash", root_url, class: "text-light font-weight-bold logo" %></div>
+    <div class="p-2"><a class="text-warning current font-weight-bold" href="#">backoffice</a></div>
+    <div class="p-2"><a class="text-light font-weight-bold" href="#">perfil</a></div>
+    <div class="p-2"><a class="text-light font-weight-bold" href="#">sair</a></div>
+  </div>
+
+            <div class="container texto">
+                <h1 class="text-light">BackOffice</h1>
+                <p class="text-light">Gerencie pedidos, refeições e mais</p>
+            </div>
+</div>
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse margem" id="navbarNavAltMarkup">
+                  <div class="navbar-nav">
+                    <a class="nav-item nav-link" href="#"> Pedidos <span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link" href="#">Usuários</a>
+                    <%= link_to  "Refeições", meals_path, class: "nav-item nav-link active" %>
+                    <%= link_to  "Categorias de Refeição",  categories_path, class: "nav-item nav-link" %>
+                  </div>
+                </div>
+        </nav>

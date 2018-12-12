@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  get 'orders/new'
+  get 'orders/show'
+  get 'orders/edit'
+  get 'orders/update'
+  get 'orders/destroy'
   # Cart on main page actions
   put '/add_item_to_cart', to: 'cart#add_item_to_cart', as: 'add_item_to_cart'
   delete '/remove_item_from_cart_main/:id', to: 'cart#remove_item_from_cart_main', as: 'remove_item_from_cart_main'
@@ -13,6 +18,9 @@ Rails.application.routes.draw do
   get 'meals/new'
   get 'meals/edit'
   resources :meals
+  resources :orders do
+    resources :order_meals
+  end
 
   resources :categories
   devise_for :users, controllers: {

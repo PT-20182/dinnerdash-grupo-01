@@ -20,8 +20,8 @@
                   <div class="navbar-nav">
                     <a class="nav-item nav-link" href="#"> Pedidos <span class="sr-only">(current)</span></a>
                     <a class="nav-item nav-link" href="#">Usuários</a>
-                    <a class="nav-item nav-link" href="#">Refeições</a>
-                    <a class="nav-item nav-link active" href="#">Categorias de Refeição</a>
+                    <%= link_to  "Refeições", meals_path, class: "nav-item nav-link" %>
+                    <%= link_to  "Categorias de Refeição",  categories_path, class: "nav-item nav-link active" %>
                   </div>
                 </div>
         </nav>
