@@ -48,12 +48,15 @@ class MealsController < ApplicationController
   end
 
   def require_admin
-     if current_user.admin?
-
+    if user_signed_in?
+     if current_user.admin
      else
       flash[:danger]=" Somente administradores podem acessar esta página"
       redirect_to root_path
-     end 
+     end
+     else
+      redirect_to root_path 
+    end 
   end
 
 
