@@ -1,4 +1,5 @@
 class MealsController < ApplicationController
+  before_action :require_admin
   def index
     @meals = Meal.all
   end
@@ -45,5 +46,15 @@ class MealsController < ApplicationController
   def meal_params
     params.require(:meal).permit(:name, :category, :price, :description, :image, :availability)
   end
+
+  def require_admin
+     if current_user.admin?
+
+     else
+      flash[:danger]=" Somente administradores podem acessar esta página"
+      redirect_to root_path
+     end 
+  end
+
 
 end
