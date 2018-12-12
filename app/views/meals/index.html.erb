@@ -15,7 +15,6 @@
                   <td><%= meal.name %></td>
                   <td> <%= meal.category %> </td>
                   <td> <%= meal.price%> </td>
-                  <td> <%= image_tag  meal.image %> </td>
                   <td><%= link_to 'Editar', edit_meal_path(meal), method: 'get', class: "text-warning"%></td>
                   <td><%= link_to 'Remover', meal_path(meal), method: 'delete', data: { confirm: 'Tem certeza?' }, class: "text-danger"%></td>
                 </tr>
@@ -24,6 +23,7 @@
           </table>
          <%= link_to "Criar nova refeição", new_meal_path, class:"btn btn-success"%>
         </div>
+  
 
 
 

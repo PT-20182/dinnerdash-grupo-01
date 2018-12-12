@@ -23,10 +23,14 @@
 </p>
 
 <p>
-  <strong>Price:</strong>
+  
+<% if @meal.image.attached? %>
   <%= image_tag  @meal.image %>
+<% else %>
+  <%= image_tag  "comidas-boas.jpg" %>
+<% end %>
+                    
 </p>
-
 <%= link_to 'Back', meals_path %>
 <%= link_to 'Edit', edit_meal_path(@meal) %>
 
