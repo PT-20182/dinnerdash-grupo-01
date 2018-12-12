@@ -161,7 +161,7 @@
         <% @meals.each do |meal|%>
           <% if item.values[0].to_i == meal.id.to_i%>
             <h5><%= meal.name %></h3> 
-            <h6 class="cart_info">Quantidade: <%= item.values[1] %> </h6>
+            <h6 class="cart_info">Quantidade: <%= item.values[1] %> </h6> 
             <h6 class="cart_info">Preço unitário: R$ <%= number_to_currency(meal.price) %> </h6>
             <h6 class="cart_info">Preço total: R$ <%= number_to_currency(meal.price.to_f * item.values[1].to_f) %></h6>
           <% end %>
