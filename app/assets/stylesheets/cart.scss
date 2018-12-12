@@ -2,8 +2,8 @@
 
 // overriding css stuff //
 .btn {
-  margin-left: 20px;
-  margin-bottom: 100px;
+  // margin-left: 20px;
+  // margin-bottom: 100px;
 }
 
 .form-control {
@@ -24,6 +24,9 @@ html {
 a:hover {
   text-decoration: none;
   color: yellow; 
+}
+
+td {
 }
 
 /* Classes */
@@ -117,7 +120,7 @@ a:hover {
 .text_box {
   display: flex;
   width: 40vw;
-  height: 20vh;
+  height: 21vh;
   background-color: white;
   overflow: hidden;
   margin-top: 4px;
@@ -145,6 +148,33 @@ a:hover {
   background: #F2F2F2;
   font-weight: bold;
 }
+
+.font_item1{
+  color: #007bff;
+  font-weight: bold;
+}
+
+.font_item2{
+  color: #fddf4c;
+}
+
+.font_item3{
+  color: #E82431;
+}
+
+.t_body{
+    color: #6B6C6D;
+}
+
+// Gambiarra 200% putassa
+
+.btn-gambs {
+  position: absolute !important; 
+  background-color: red !important;
+  z-index: 1 !important;
+}
+
+// Não tente isso em casa
 
 /* IDS */
 

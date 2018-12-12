@@ -32,6 +32,14 @@ a:hover {
   color: #F2F2F2;
 }
 
+.btn-checkout {
+  margin-left: 0px !important;
+}
+
+.btn-spacing {
+  margin-left: 10px;
+}
+
 .margin_div{
   margin-left: 4em;
   margin-top: 9em;
@@ -92,6 +100,16 @@ a:hover {
   margin-bottom: 4px;
 }
 
+.text_box {
+  width: 50vw;
+  height: 30vh;
+  background-color: white;
+  overflow: hidden;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  margin-left: 132px;
+}
+
 .meals_img {
   background-size: cover;
   background-repeat: no-repeat;
@@ -116,9 +134,10 @@ a:hover {
 }
 
 .footer {
-  margin-top: -5em;
+  // margin-top: -5em;
   background: #F2F2F2;
   font-weight: bold;
+  color: #747474;
 }
 
 .footer_rights {
@@ -161,6 +180,13 @@ a:hover {
   flex-direction: row;
 }
 
+.title_styles {
+  color:#747474;
+}
+
+.login_signup_message {
+  color: #ACACAC;
+}
 /* IDS */
 
 #header_font {
@@ -219,9 +245,6 @@ a:hover {
   margin-top: 10px;
 }
 
-#login_signup_message {
-  color: #ACACAC;
-}
 
 #cart_btn {
   margin-top: 15px;

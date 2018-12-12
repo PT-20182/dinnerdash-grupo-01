@@ -29,7 +29,7 @@
   </div>
 </div>
 
-<div class="title_spacing"><h3>Saladas</h3></div>
+<div class="title_spacing title_styles"><h3>Saladas</h3></div>
 <div class="container">
     <% @meals.each do |meal| %>
       <%if meal.category == "Saladas"%> <!-- Onde jogo isso aqui pra nao poluir o erb -->
@@ -53,7 +53,7 @@
     <% end %>
 </div>
 
-  <div class="title_spacing"><h3>Molhos</h3></div>
+  <div class="title_spacing title_styles"><h3>Molhos</h3></div>
 <div class="container">
     <% @meals.each do |meal| %>
       <%if meal.category == "Molhos"%> <!-- Onde jogo isso aqui pra nao poluir o erb -->
@@ -76,7 +76,7 @@
     <% end %>
 </div>
 
-  <div class="title_spacing"><h3>Pratos principais</h3></div>
+  <div class="title_spacing title_styles"><h3>Pratos principais</h3></div>
 <div class="container">
     <% @meals.each do |meal| %>
       <%if meal.category == "Pratos Principais"%> <!-- Onde jogo isso aqui pra nao poluir o erb -->
@@ -99,7 +99,7 @@
     <% end %>
 </div>
 
-  <div class="title_spacing"><h3>Guanirções</h3></div>
+  <div class="title_spacing title_styles"><h3>Guanirções</h3></div>
 <div class="container">
     <% @meals.each do |meal| %>
       <%if meal.category == "Guarnições"%> <!-- Onde jogo isso aqui pra nao poluir o erb -->
@@ -122,7 +122,7 @@
     <% end %>
 </div>
 
-  <div class="title_spacing"><h3>Bebidas:</h3></div>
+  <div class="title_spacing title_styles"><h3>Bebidas:</h3></div>
 <div class="container">
     <% @meals.each do |meal| %>
       <%if meal.category == "Bebidas"%>
@@ -147,9 +147,9 @@
 
 <hr id="hr_line">
 
-<div class="title_spacing">
-  <h3>Finalizou seu pedido?</h3>
-  <p>Confira os itens pedidos antes de finalizar o pedido</p>
+<div class="title_spacing title_styles">
+  <h3 class="title_styles">Finalizou seu pedido?</h3>
+  <p class="login_signup_message">Confira os itens pedidos antes de finalizar o pedido</p>
 </div>
 
 <div class="container">
@@ -178,25 +178,23 @@
 </div>
 
 <hr id="hr_line">
-
-<div class="checkout_message final_price_line">
-  <h3>Preço total do pedido: </h3>
-  <% total = 0 %>
-  <% session[:cart].each do |item| %>
-    <% total += ((Meal.find(item.values[0].to_f).price)*(item.values[1].to_f)) %>
-  <% end %>
-  <h3 id="cart_value"> R$ <%= number_to_currency(total) %> </h3>
+<div class="text_box">
+  <div class=" final_price_line">
+    <h3 class="title_styles">Preço total do pedido: </h3>
+    <% total = 0 %>
+    <% session[:cart].each do |item| %>
+      <% total += ((Meal.find(item.values[0].to_f).price)*(item.values[1].to_f)) %>
+    <% end %>
+    <h3 id="cart_value"> R$ <%= number_to_currency(total) %> </h3>
+  </div>
+    <% if user_signed_in? %>
+      <%= link_to "finalizar e pagar", cart_path, class: "btn btn-success"%>
+    <% else %>
+    <p class="login_signup_message"> Para finalizar o seu pedido, entre com sua conta ou faça o seu cadastro.</p>
+      <%= link_to "entrar com minha conta", user_session_path , class: "btn btn-success btn-checkout"%>
+      <%= link_to "fazer o meu cadastro", new_user_registration_path , class: "btn btn-outline-success"%>
+    <% end %> <!-- consertar isso aqui ta zuado o front -->
 </div>
-<div class="checkout_message">
-  <% if user_signed_in? %>
-    <%= link_to "finalizar e pagar", user_session_path, class: "btn btn-success"%>
-  <% else %>
-  <p id="login_signup_message"> Para finalizar o seu pedido, entre com sua conta ou faça o seu cadastro.</p>
-    <%= link_to "entrar com minha conta", user_session_path , class: "btn btn-success"%>
-    <%= link_to "fazer o meu cadastro", new_user_registration_path , class: "btn btn-outline-success"%>
-  <% end %> <!-- consertar isso aqui ta zuado o front -->
-</div>
-
  <!-- Consertar essa parte pra alinhar o botão -->
 <nav class="footer">
   <div class="navbar">
@@ -204,7 +202,7 @@
       <h5>dinnerdash | todos os direitos reservados</h5>
     </div>
     <div class="footer_members">
-      <p>Desenvolvido por Gabriel Bessa, Conrado Nunes e Victor Girão</p>
+      <p>desenvolvido por Gabriel Bessa, Conrado Nunes e Victor Girão</p>
     </div>
   </div>
 </nav>
