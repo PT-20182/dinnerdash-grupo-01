@@ -9,6 +9,9 @@
       </div>
       <div class="margin_div_dinnerdash2">
         <% if user_signed_in? %>
+          <% if current_user.admin %>
+          <h5 class="space_between"><%= link_to "Backoffice" , meals_path, class: "link_color"%></h5>
+          <% end %>
           <h5 class="space_between"><%= link_to "perfil", edit_user_registration_path, class:"link_color" %></h5>
           <h5><%= link_to "sair", destroy_user_session_path, method: :delete, class: "link_color" %></h5>
         <% else %>  

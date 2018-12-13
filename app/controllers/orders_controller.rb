@@ -1,7 +1,11 @@
 class OrdersController < ApplicationController
 
   def index
-    @orders = Order.all
+    if current_user.admin?
+      @orders = Order.all
+    else
+      @orders = current_user.orders  
+    end 
   end
   def new
   @order = Order.new
@@ -10,11 +14,17 @@ class OrdersController < ApplicationController
   def create
     #session[:cart] = [{id: 3, quantity: 10}, ...]
     @order = Order.new(order_params)
+    @order.user = current_user
+    @price = 0
     session[:cart].each do |item|
-      @order_meal = OrderMeal.create(meal_id: item["id"],quantity: item["quantity"], order_id: @order)
-      @order_meal.save
-    end 
-    if @order.save
+      @price += (Meal.find(item["id"]).price) * item["quantity"]
+    end  
+    @order.price = @price
+    if @order.save!
+      session[:cart].each do |item|
+        @order_meal = OrderMeal.create(meal_id: item["id"],quantity: item["quantity"], order: @order)
+        @order_meal.save!
+      end
       redirect_to orders_path method: :get
     else
     end

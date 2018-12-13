@@ -3,8 +3,8 @@
   <div class="top_navbar container d-flex">
     <div class="mr-auto p-2"><%= link_to  "Dinnerdash", root_url, class: "text-light font-weight-bold logo" %></div>
     <div class="p-2"><a class="text-warning current font-weight-bold" href="#">backoffice</a></div>
-    <div class="p-2"><a class="text-light font-weight-bold" href="#">perfil</a></div>
-    <div class="p-2"><a class="text-light font-weight-bold" href="#">sair</a></div>
+    <div class="p-2"> <%= link_to "perfil", edit_user_registration_path, class:"text-light font-weight-bold" %></div>
+    <div class="p-2"> <%= link_to "sair", destroy_user_session_path, method: :delete, class:"text-light font-weight-bold" %></div> 
   </div>
 
             <div class="container texto">
@@ -19,8 +19,8 @@
                 </button>
                 <div class="collapse navbar-collapse margem" id="navbarNavAltMarkup">
                   <div class="navbar-nav">
-                    <a class="nav-item nav-link" href="#"> Pedidos <span class="sr-only">(current)</span></a>
-                    <a class="nav-item nav-link" href="#">Usuários</a>
+                    <a class="nav-item nav-link" href="<%= orders_path %>"> Pedidos <span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link" href="">Usuários</a>
                     <%= link_to  "Refeições", meals_path, class: "nav-item nav-link active" %>
                     <%= link_to  "Categorias de Refeição",  categories_path, class: "nav-item nav-link" %>
                   </div>
