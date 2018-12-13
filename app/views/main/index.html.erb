@@ -32,7 +32,7 @@
 <div class="title_spacing title_styles"><h3>Saladas</h3></div>
 <div class="container">
     <% @meals.each do |meal| %>
-      <%if meal.category == "Saladas"%> <!-- Onde jogo isso aqui pra nao poluir o erb -->
+      <%if meal.category.name == "Saladas"%> <!-- Onde jogo isso aqui pra nao poluir o erb -->
         <div class="meal_box"> 
           <div class="meals_img" style="background-image: url('<%= url_for(meal.image)%>');">
             <div id="img_desc"><%= meal.name %></div>

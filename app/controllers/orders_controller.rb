@@ -8,11 +8,15 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order = Order.new(meal_params)
+    #session[:cart] = [{id: 3, quantity: 10}, ...]
+    @order = Order.new(order_params)
+    session[:cart].each do |item|
+      @order_meal = OrderMeal.create(meal_id: item["id"],quantity: item["quantity"], order_id: @order)
+      @order_meal.save
+    end 
     if @order.save
-      redirect_to @order
+      redirect_to orders_path method: :get
     else
-      render 'new'
     end
   end
 
@@ -42,7 +46,10 @@ end
   private 
 
   def order_params
-    params.require(:order).permit(:price, :user_id)
+    params.permit(:price, :user_id)
   end
 
+  def order_meal_params
+    params.require(:order_meal).permit(:quantity, :order_id, :meal_id)
+  end
 end

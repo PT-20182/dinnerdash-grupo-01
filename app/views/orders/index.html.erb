@@ -1,0 +1,37 @@
+<%= stylesheet_link_tag "meals" %>
+<%= stylesheet_link_tag "main" %>
+ <%= render  "meals/header" %>
+
+<div class="container-fluid">
+          <table class="table table-hover tabela">
+            <thead class="table-active">
+              <tr class="cabecalho">
+                <th scope="col">Preço</th>
+                <th scope="col">Categoria</th>
+                <th scope="col" colspan="3">Preço</th>
+              </tr>
+            </thead>
+            <% @orders.all.each do |order| %>
+            <tbody class = "text-muted">
+                <tr class="corpo">
+                  <td><%= order.price %></td>
+                  <% order.order_meals.all.each do |order_meal| %>
+                    order_meal.meal.name
+                  <% end %>  
+
+                  <td> <%=  %> </td>
+                  <td><%= link_to 'Editar', edit_order_path(order), method: 'get', class: "text-warning"%></td>
+                  <td><%= link_to 'Remover', order_path(order), method: 'delete', data: { confirm: 'Tem certeza?' }, class: "text-danger"%></td>
+                </tr>
+            </tbody>
+            <% end %>
+          </table>
+         <%= link_to "Criar nova refeição", new_order_path, class:"btn btn-success"%>
+        </div>
+
+
+  
+
+
+
+<%= render  "meals/footer" %>

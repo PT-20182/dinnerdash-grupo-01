@@ -81,7 +81,7 @@
 </div>
 <div class="">
   <% if user_signed_in? %>
-    <%= link_to "finalizar e pagar", user_session_path, class: "btn btn-success"%>
+    <%= link_to "finalizar e pagar", orders_path, method: :post, class: "btn btn-success"%>
   <% else %>
      <%= redirect_to root_path %>
   <% end %> 
