@@ -10,4 +10,5 @@ class Meal < ApplicationRecord
 
     has_one :categories
     validates :price, numericality: { greater_than: 0}
+    belongs_to :category
 end

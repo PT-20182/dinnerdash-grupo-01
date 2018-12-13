@@ -33,7 +33,8 @@
         <div class="form-group col-md-6">  
           <p>
             <%= form.label :categoria %><br>
-            <%= form.text_field :category, class:"form-control"   %>
+            <%#= form.text_field :category, class:"form-control"   %>
+            <%= form.collection_select :category_id, Category.all,:id,:name,{prompt: "Selecione a categoria"}, {id: :meal_category, class: "form-control" } %>
           </p>
         </div>
       </div>
